@@ -54,7 +54,7 @@ class App extends Component {
         topRow: clarifaiFace.top_row[i] * height,
         rightCol: width - (clarifaiFace.right_col[i] * width),
         bottomRow: height - (clarifaiFace.bottom_row[i] * height),
-        }}}}
+        }}}
     }
     
     displayFaceBox = (box) => {
