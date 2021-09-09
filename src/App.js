@@ -50,10 +50,10 @@ class App extends Component {
         const height = Number(image.height);
         for(let i=0; i<data.outputs[0].data.regions.length; i++){
         return {
-        leftCol: clarifaiFace.left_col[i] * width,
-        topRow: clarifaiFace.top_row[i] * height,
-        rightCol: width - (clarifaiFace.right_col[i] * width),
-        bottomRow: height - (clarifaiFace.bottom_row[i] * height),
+        leftCol: clarifaiFace.left_col * width,
+        topRow: clarifaiFace.top_row * height,
+        rightCol: width - (clarifaiFace.right_col * width),
+        bottomRow: height - (clarifaiFace.bottom_row * height),
         }}}
     }
     
