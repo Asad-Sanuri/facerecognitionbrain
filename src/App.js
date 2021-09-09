@@ -49,11 +49,12 @@ class App extends Component {
         const width = Number(image.width);
         const height = Number(image.height);
         return {
+        for(let i=0; i<data.outputs[0].data.regions.length; i++){
         leftCol: clarifaiFace.left_col[i] * width,
         topRow: clarifaiFace.top_row[i] * height,
         rightCol: width - (clarifaiFace.right_col[i] * width),
         bottomRow: height - (clarifaiFace.bottom_row[i] * height),
-        }}
+        }}}
     }
     
     displayFaceBox = (box) => {
