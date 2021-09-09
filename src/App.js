@@ -42,17 +42,22 @@ class App extends Component {
     }
     
     calculateFaceLocation = (data) => {
-        for(let i=0; i<data.outputs[0].data.regions.length; i++){
+      for(i=0; i<data.outputs[0].data.regions.length; i++){
         //const clarifaiFace = data.outputs[0].data.regions[0].region_info.bounding_box;
-        let clarifaiFace = data.outputs[0].data.regions[i].region_info.bounding_box;
+        const clarifaiFace = data.outputs[0].data.regions[i].region_info.bounding_box;
         const image = document.getElementById('inputimage');
         const width = Number(image.width);
         const height = Number(image.height);
         return {
-        leftCol: clarifaiFace.left_col * width,
-        topRow: clarifaiFace.top_row * height,
-        rightCol: width - (clarifaiFace.right_col * width),
-        bottomRow: height - (clarifaiFace.bottom_row * height),
+        leftCol: clarifaiFace.left_col[0] * width,
+        topRow: clarifaiFace.top_row[0] * height,
+        rightCol: width - (clarifaiFace.right_col[0] * width),
+        bottomRow: height - (clarifaiFace.bottom_row[0] * height),
+
+        leftCol2: clarifaiFace.left_col[1] * width,
+        topRow2: clarifaiFace.top_row[1] * height,
+        rightCol2: width - (clarifaiFace.right_col[1] * width),
+        bottomRow2: height - (clarifaiFace.bottom_row[1] * height),
         }}
     }
     
