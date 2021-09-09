@@ -48,13 +48,12 @@ class App extends Component {
         const image = document.getElementById('inputimage');
         const width = Number(image.width);
         const height = Number(image.height);
-        for(let i=0; i<data.outputs[0].data.regions.length; i++){
         return {
-        leftCol[i]: clarifaiFace.left_col * width,
-        topRow[i]: clarifaiFace.top_row * height,
-        rightCol[i]: width - (clarifaiFace.right_col * width),
-        bottomRow[i]: height - (clarifaiFace.bottom_row * height),
-        }}}
+        leftCol: clarifaiFace.left_col * width,
+        topRow: clarifaiFace.top_row * height,
+        rightCol: width - (clarifaiFace.right_col * width),
+        bottomRow: height - (clarifaiFace.bottom_row * height),
+        }}
     }
     
     displayFaceBox = (box) => {
