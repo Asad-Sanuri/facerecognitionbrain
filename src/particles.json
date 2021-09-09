@@ -1,7 +1,7 @@
 {
-  "background": {
-    "color": {
-      "value": "#282c34"
+  "background": { 
+    "color": { 
+      "value": "#rgba(0, 0, 0, 0) linear-gradient(to right, rgb(63, 55, 200), rgb(228, 37, 27)) repeat scroll 0% 0%;"
     }
   },
   "fpsLimit": 60,
@@ -46,7 +46,7 @@
       "width": 1
     },
     "collisions": {
-      "enable": true
+      "enable": false
     },
     "move": {
       "direction": "none",
@@ -61,7 +61,7 @@
         "enable": true,
         "value_area": 800
       },
-      "value": 80
+      "value": 45
     },
     "opacity": {
       "value": 0.5
