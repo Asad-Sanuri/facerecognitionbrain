@@ -45,7 +45,7 @@ class App extends Component {
       //data.outputs[0].data.regions[0].region_info.bounding_box
       data.outputs[0].data.regions.forEach( function(region){
          //console.log(region.region_info.bounding_box)} )
-        let clarifaiFace = {};   
+        var clarifaiFace = {};   
         let clarifaiFace = region.region_info.bounding_box; 
         const image = document.getElementById('inputimage');
         const width = Number(image.width);
