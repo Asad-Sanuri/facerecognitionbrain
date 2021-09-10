@@ -51,10 +51,10 @@ class App extends Component {
         const width = Number(image.width);
         const height = Number(image.height);
          
-        box.leftCol = 0;
-        box.topRow = 0;
-        box.rightCol = 0;
-        box.bottomRow = 0;
+        box.leftCol = clarifaiFace.left_col;
+        box.topRow = clarifaiFace.top_row;
+        box.rightCol = clarifaiFace.right_col;
+        box.bottomRow = clarifaiFace.bottom_row;
         return{               
           leftCol: clarifaiFace.left_col * width,
           topRow: clarifaiFace.top_row * height,
