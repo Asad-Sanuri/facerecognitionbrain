@@ -50,7 +50,7 @@ class App extends Component {
         const image = document.getElementById('inputimage');
         const width = Number(image.width);
         const height = Number(image.height);
-        console.log('first one' leftCol, topRow, rightCol, bottomRow);
+        console.log('first one', leftCol, topRow, rightCol, bottomRow);
         
         return{               
           leftCol: clarifaiFace.left_col * width,
