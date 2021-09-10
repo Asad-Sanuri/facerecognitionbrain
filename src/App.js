@@ -57,9 +57,9 @@ class App extends Component {
           topRow: clarifaiFace.top_row * height,
           rightCol: width - (clarifaiFace.right_col * width),
           bottomRow: height - (clarifaiFace.bottom_row * height),
-          bobo: console.log('first one', leftCol, topRow, rightCol, bottomRow);             
+          bobo: console.log('first one', leftCol, topRow, rightCol, bottomRow),             
             }
-                      
+            
           })      
           }
         
