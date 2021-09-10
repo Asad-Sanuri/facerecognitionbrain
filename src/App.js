@@ -13,7 +13,7 @@ import './App.css';
 const initialState = {
   input: '', 
   imageUrl: '',
-  box: [{}],
+  box: {},
   route: 'signin',
   isSignedIn: false,
   user: {
@@ -54,7 +54,6 @@ class App extends Component {
           leftCol: clarifaiFace.left_col * width,
           rightCol: width - (clarifaiFace.right_col * width),
           topRow: clarifaiFace.top_row * height,
-                    
                 }  
               })                      
             }          
