@@ -42,13 +42,15 @@ class App extends Component {
     }
     
     calculateFaceLocation = (data) => {  
+      //data.outputs[0].data.regions[0].region_info.bounding_box
       data.outputs[0].data.regions.forEach( function(region){
-         //console.log(region.region_info.bounding_box)} )   
-         
+         //console.log(region.region_info.bounding_box)} )
+        let clarifaiFace = {};   
+        let clarifaiFace = region.region_info.bounding_box; 
         const image = document.getElementById('inputimage');
         const width = Number(image.width);
         const height = Number(image.height);
-        let clarifaiFace = region.region_info.bounding_box;
+        
         
         return{       
           leftCol: clarifaiFace.left_col * width,
