@@ -41,20 +41,15 @@ class App extends Component {
         }})
     }
     
-    calculateFaceLocation = (data, box) => {
-        box.leftCol = 0;
-        box.topRow = 0;
-        box.rightCol = 0;
-        box.bottomRow = 0;  
+    calculateFaceLocation = (data) => {        
       //const clarifaiFace = data.outputs[0].data.regions[0].region_info.bounding_box
       data.outputs[0].data.regions.forEach( function(region){
-         //console.log(region.region_info.bounding_box)} )
-         
+         console.log(region.region_info.bounding_box) //} )         
         const clarifaiFace = region.region_info.bounding_box; 
         const image = document.getElementById('inputimage');
         const width = Number(image.width);
         const height = Number(image.height);
-                              
+
         return{
           bottomRow: height - (clarifaiFace.bottom_row * height),               
           leftCol: clarifaiFace.left_col * width,
@@ -63,10 +58,9 @@ class App extends Component {
                     
                 }  
               })                      
-            }           
+            }          
                 
-          
-        
+                 
           
        
     displayFaceBox = (box) => {
