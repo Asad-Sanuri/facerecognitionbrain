@@ -135,7 +135,7 @@ class App extends Component {
                     onInputChange={this.onInputChange}
                     onButtonSubmit={this.onButtonSubmit}                    
                 />
-                <FaceRecognition jer={jer} box={box} imageUrl={imageUrl}  />
+                <FaceRecognition box={box[jer]} imageUrl={imageUrl}  />
                 </div>
             : (
                 route === 'signin'
