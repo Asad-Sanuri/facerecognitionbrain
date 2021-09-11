@@ -60,22 +60,25 @@ class App extends Component {
       
       // works
     for (let i=0; i<data.outputs[0].data.regions.length; i++){
-      for (let j=0; j<data.outputs[0].data.regions.length; j++){
-      console.log(data.outputs[0].data.regions[i].region_info.bounding_box);
-      const clarifaiFace = data.outputs[0].data.regions[i].region_info.bounding_box;    
+         
+      for (let j=i+1; j<data.outputs[0].data.regions.length+1; j++){
+      console.log(data.outputs[0].data.regions[j].region_info.bounding_box);
+      const clarifaiFace = data.outputs[0].data.regions[j].region_info.bounding_box;    
         //const clarifaiFace = data.outputs[0].data.regions[i].region_info.bounding_box;     
         const image = document.getElementById('inputimage');
         const width = Number(image.width);
         const height = Number(image.height);        
         return{
+          j = j;
           clarifaiFace: data.outputs[0].data.regions[i].region_info.bounding_box,          
           bottomRow: height - (clarifaiFace.bottom_row * height),               
           leftCol: clarifaiFace.left_col * width,
           rightCol: width - (clarifaiFace.right_col * width),
           topRow: clarifaiFace.top_row * height,
           //dataArray: dataArray,
-                  }
+                  }                  
                 }
+              
               }
             }
             //)
