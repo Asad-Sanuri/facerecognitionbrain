@@ -58,8 +58,8 @@ class App extends Component {
           topRow: clarifaiFace.top_row * height,
                 }
               }
-            )
-          }  
+            //)
+          //}  
                                                        
        
     displayFaceBox = (box) => {
