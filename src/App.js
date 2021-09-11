@@ -57,7 +57,7 @@ class App extends Component {
           rightCol: width - (clarifaiFace.right_col * width),
           topRow: clarifaiFace.top_row * height
                 }
-              }
+              })
             }  
               //)                      
             //}                                           
