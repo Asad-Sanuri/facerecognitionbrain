@@ -13,7 +13,7 @@ import './App.css';
 const initialState = {
   input: '', 
   imageUrl: '',
-  box: [{}],
+  box: {},
   jer: 0,
   route: 'signin',
   isSignedIn: false,
