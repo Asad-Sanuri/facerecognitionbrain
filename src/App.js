@@ -45,11 +45,11 @@ class App extends Component {
       // OG const clarifaiFace = data.outputs[0].data.regions[0].region_info.bounding_box;
       // works on second face -> const clarifaiFace = data.outputs[0].data.regions[0, 1].region_info.bounding_box;
                   
-    for(let i=1; i<data.outputs[0].data.regions.length+1; i++){
+    /* for(let i=1; i<data.outputs[0].data.regions.length+1; i++){
         let bar = function(){
       for(let j=i-1; j<data.outputs[0].data.regions.length; j++){
         console.log('i=' , i, 'j=', j);
-        console.log(data.outputs[0].data.regions[j].region_info.bounding_box);      
+        console.log(data.outputs[0].data.regions[j].region_info.bounding_box);   */    
         const clarifaiFace = data.outputs[0].data.regions[0].region_info.bounding_box;          
         const image = document.getElementById('inputimage');
         const width = Number(image.width);
@@ -61,10 +61,10 @@ class App extends Component {
           bottomRow: height - (clarifaiFace.bottom_row * height)                  
                     }
                   }                  
-                }          
+            /*     }          
               bar();
               }
-            }      
+            }  */     
                                                               
     displayFaceBox = (box) => {
         this.setState( {box: box} );        
