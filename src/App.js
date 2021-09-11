@@ -43,48 +43,36 @@ class App extends Component {
     
     calculateFaceLocation = (data) => {
       // OG const clarifaiFace = data.outputs[0].data.regions[0].region_info.bounding_box;
-
       // works on second face -> const clarifaiFace = data.outputs[0].data.regions[0, 1].region_info.bounding_box;
-
-      //data.outputs[0].data.regions.forEach(function(region){
-        //const clarifaiFace = data.outputs[0].data.regions[0,1].region_info.bounding_box;
-    //data.outputs[0].data.regions.forEach(function(region){   
-    //const clarifaiFace = region[0, 1].region_info.bounding_box;
-    
-      
     
     //let dataArray = [];
       /* let dataArray = [data.outputs[0].data.regions.forEach(function(region){
         console.log(region.region_info.bounding_box)
       })]  */
+          
       
-      // works
-      let k = 0;
-    for (let i=1; i<data.outputs[0].data.regions.length+1; i++){
-         k = i+1;
-      for (let j=i+1; j<data.outputs[0].data.regions.length+2; j++){
+    for(let i=1; i<data.outputs[0].data.regions.length+1; i++){
+         let bar = function(){
+      for(let j=i+1; j<data.outputs[0].data.regions.length+2; j++){
         console.log(data.outputs[0].data.regions[i-1].region_info.bounding_box);      
-      //console.log(data.outputs[0].data.regions[j-2].region_info.bounding_box);
-    //const clarifaiFace = data.outputs[0].data.regions[j-2].region_info.bounding_box;
-        const clarifaiFace = data.outputs[0].data.regions[i-1].region_info.bounding_box;    
-        //const clarifaiFace = data.outputs[0].data.regions[i].region_info.bounding_box;     
+        const clarifaiFace = data.outputs[0].data.regions[i-1].region_info.bounding_box;          
         const image = document.getElementById('inputimage');
         const width = Number(image.width);
         const height = Number(image.height);        
-        return{
-          //clarifaiFace: data.outputs[0].data.regions[i-1].region_info.bounding_box,          
+        return{                    
           bottomRow: height - (clarifaiFace.bottom_row * height),               
           leftCol: clarifaiFace.left_col * width,
           rightCol: width - (clarifaiFace.right_col * width),
           topRow: clarifaiFace.top_row * height,
           //dataArray: dataArray,
+                    }
                   }                  
                 }
-              
+
+              bar();
               }
             }
-            //)
-          //}  
+        
                                                        
        
     displayFaceBox = (box) => {
