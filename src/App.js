@@ -69,7 +69,7 @@ class App extends Component {
         const width = Number(image.width);
         const height = Number(image.height);        
         return{
-          j = j;
+          j = j,
           clarifaiFace: data.outputs[0].data.regions[i].region_info.bounding_box,          
           bottomRow: height - (clarifaiFace.bottom_row * height),               
           leftCol: clarifaiFace.left_col * width,
