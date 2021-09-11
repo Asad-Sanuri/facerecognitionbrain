@@ -60,6 +60,7 @@ class App extends Component {
       
       // works
     for (let i=0; i<data.outputs[0].data.regions.length; i++){
+      for (let j=0; j<data.outputs[0].data.regions.length; j++){
       console.log(data.outputs[0].data.regions[i].region_info.bounding_box);
       const clarifaiFace = data.outputs[0].data.regions[i].region_info.bounding_box;    
         //const clarifaiFace = data.outputs[0].data.regions[i].region_info.bounding_box;     
@@ -76,6 +77,7 @@ class App extends Component {
                   }
                 }
               }
+            }
             //)
           //}  
                                                        
