@@ -43,9 +43,10 @@ class App extends Component {
     
     calculateFaceLocation = (data) => {
       //OG const clarifaiFace = data.outputs[0].data.regions[0].region_info.bounding_box;
-      //let i = 0;        
+      //let i = 0;
+      const clarifaiFace = {};        
       data.outputs[0].data.regions.forEach(function(region){      
-        const clarifaiFace = region[0].region_info.bounding_box;
+        clarifaiFace = region.region_info.bounding_box;
         console.log(region.region_info.bounding_box);      
       //data.outputs[0].data.regions.forEach(function(region){
         //console.log(region.region_info.bounding_box);
@@ -53,14 +54,15 @@ class App extends Component {
         //const clarifaiFace = region[0].region_info.bounding_box; 
         const image = document.getElementById('inputimage');
         const width = Number(image.width);
-        const height = Number(image.height);
+        const height = Number(image.height);)
         return{
           bottomRow: height - (clarifaiFace.bottom_row * height),               
           leftCol: clarifaiFace.left_col * width,
           rightCol: width - (clarifaiFace.right_col * width),
           topRow: clarifaiFace.top_row * height
                 }
-              })
+              } 
+              //)
             }  
               //)                      
             //}                                           
