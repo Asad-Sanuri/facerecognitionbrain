@@ -45,8 +45,8 @@ class App extends Component {
       //OG const clarifaiFace = data.outputs[0].data.regions[0].region_info.bounding_box;
       let i = 0;    
       data.outputs[0].data.regions.forEach(function(region){      
-        let clarifaiFace = region.regions[i].region_info.bounding_box;
-        console.log(region.region_info.bounding_box);      
+        let clarifaiFace = region[i].region_info.bounding_box;
+        console.log(region[i].region_info.bounding_box);      
       //data.outputs[0].data.regions.forEach(function(region){
         //console.log(region.region_info.bounding_box);                    
         //const clarifaiFace = region[0].region_info.bounding_box; 
