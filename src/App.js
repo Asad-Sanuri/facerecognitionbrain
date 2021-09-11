@@ -14,7 +14,7 @@ const initialState = {
   input: '', 
   imageUrl: '',
   box: [{}],
-  j: 0,
+  jer: 0,
   route: 'signin',
   isSignedIn: false,
   user: {
@@ -60,7 +60,7 @@ class App extends Component {
           leftCol: clarifaiFace.left_col * width,
           rightCol: width - (clarifaiFace.right_col * width),
           topRow: clarifaiFace.top_row * height,
-          j: j,        
+          jer: j,        
                     }
                   }                  
                 }          
@@ -68,8 +68,8 @@ class App extends Component {
               }
             }      
                                                               
-    displayFaceBox = (box, j) => {
-        this.setState( [{ box: box[j] }] );        
+    displayFaceBox = (box, jer) => {
+        this.setState( [{ box: box[jer] }] );        
     }
     
     onInputChange = (event) => {
@@ -117,7 +117,7 @@ class App extends Component {
     }
 
     render(){
-        const { isSignedIn, imageUrl, route, box, j } = this.state;
+        const { isSignedIn, imageUrl, route, box, jer } = this.state;
         return (
             <div className="App">
                 <Particles options={particlesOptions}/>
@@ -133,7 +133,7 @@ class App extends Component {
                     onInputChange={this.onInputChange}
                     onButtonSubmit={this.onButtonSubmit}                    
                 />
-                <FaceRecognition j={j} box={box} imageUrl={imageUrl}  />
+                <FaceRecognition jer={jer} box={box} imageUrl={imageUrl}  />
                 </div>
             : (
                 route === 'signin'
