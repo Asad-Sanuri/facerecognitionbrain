@@ -55,12 +55,12 @@ class App extends Component {
         const image = document.getElementById('inputimage');
         const width = Number(image.width);
         const height = Number(image.height);        
-        return{      
-          j: j,              
+        return{                         
           bottomRow: height - (clarifaiFace.bottom_row * height),               
           leftCol: clarifaiFace.left_col * width,
           rightCol: width - (clarifaiFace.right_col * width),
-          topRow: clarifaiFace.top_row * height,        
+          topRow: clarifaiFace.top_row * height,
+          j: j,        
                     }
                   }                  
                 }          
@@ -69,7 +69,7 @@ class App extends Component {
             }      
                                                               
     displayFaceBox = (box, j) => {
-        this.setState({box: box[j]});        
+        this.setState( [{ box: box[j] }] );        
     }
     
     onInputChange = (event) => {
