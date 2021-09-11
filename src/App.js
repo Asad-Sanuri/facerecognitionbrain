@@ -54,18 +54,17 @@ class App extends Component {
         //const clarifaiFace = region[0].region_info.bounding_box; 
         const image = document.getElementById('inputimage');
         const width = Number(image.width);
-        const height = Number(image.height);})
+        const height = Number(image.height);
         return{
           bottomRow: height - (clarifaiFace.bottom_row * height),               
           leftCol: clarifaiFace.left_col * width,
           rightCol: width - (clarifaiFace.right_col * width),
           topRow: clarifaiFace.top_row * height
                 }
-              //} 
-              //)
-            }  
-              //)                      
-            //}                                           
+              }
+            )
+          }  
+                                                       
        
     displayFaceBox = (box) => {
         this.setState({box: box});
