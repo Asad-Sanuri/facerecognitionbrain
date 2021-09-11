@@ -14,6 +14,7 @@ const initialState = {
   input: '', 
   imageUrl: '',
   box: [{}],
+  j: 0,
   route: 'signin',
   isSignedIn: false,
   user: {
@@ -44,19 +45,13 @@ class App extends Component {
     calculateFaceLocation = (data) => {
       // OG const clarifaiFace = data.outputs[0].data.regions[0].region_info.bounding_box;
       // works on second face -> const clarifaiFace = data.outputs[0].data.regions[0, 1].region_info.bounding_box;
-    
-    //let dataArray = [];
-      /* let dataArray = [data.outputs[0].data.regions.forEach(function(region){
-        console.log(region.region_info.bounding_box)
-      })]  */
-          
-      
+                  
     for(let i=1; i<data.outputs[0].data.regions.length+1; i++){
-         let bar = function(){
+        let bar = function(){
       for(let j=i-1; j<data.outputs[0].data.regions.length; j++){
         console.log('i=' , i, 'j=', j);
         console.log(data.outputs[0].data.regions[j].region_info.bounding_box);      
-      const clarifaiFace = data.outputs[0].data.regions[j].region_info.bounding_box;          
+        const clarifaiFace = data.outputs[0].data.regions[j].region_info.bounding_box;          
         const image = document.getElementById('inputimage');
         const width = Number(image.width);
         const height = Number(image.height);        
@@ -65,21 +60,16 @@ class App extends Component {
           bottomRow: height - (clarifaiFace.bottom_row * height),               
           leftCol: clarifaiFace.left_col * width,
           rightCol: width - (clarifaiFace.right_col * width),
-          topRow: clarifaiFace.top_row * height,
-          //dataArray: dataArray,
+          topRow: clarifaiFace.top_row * height,        
                     }
                   }                  
-                }
-          //console.log(data.outputs[0].data.regions[i-1].region_info.bounding_box);
+                }          
               bar();
               }
-            }
-        
-                                                       
-       
+            }      
+                                                              
     displayFaceBox = (box, j) => {
-        this.setState({box: box[j]});
-        console.log('box= ', box, 'j=', j);
+        this.setState({box: box[j]});        
     }
     
     onInputChange = (event) => {
@@ -127,7 +117,7 @@ class App extends Component {
     }
 
     render(){
-        const { isSignedIn, imageUrl, route, box } = this.state;
+        const { isSignedIn, imageUrl, route, box, j } = this.state;
         return (
             <div className="App">
                 <Particles options={particlesOptions}/>
