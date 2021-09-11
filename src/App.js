@@ -50,17 +50,24 @@ class App extends Component {
         //const clarifaiFace = data.outputs[0].data.regions[0,1].region_info.bounding_box;
     //data.outputs[0].data.regions.forEach(function(region){   
     //const clarifaiFace = region[0, 1].region_info.bounding_box;
-    for (let i=0; i<data.outputs[0].data.regions.length; i++){
-    const clarifaiFace = data.outputs[0].data.regions[i].region_info.bounding_box;
-      //let dataArray = [];
+    
+      
+    
+    //let dataArray = [];
       /* let dataArray = [data.outputs[0].data.regions.forEach(function(region){
         console.log(region.region_info.bounding_box)
-      })]  */     
+      })]  */
+      
+      // works
+    for (let i=0; i<data.outputs[0].data.regions.length; i++){
+      console.log(data.outputs[0].data.regions[i].region_info.bounding_box);
+      const clarifaiFace = data.outputs[0].data.regions[i].region_info.bounding_box;    
+        //const clarifaiFace = data.outputs[0].data.regions[i].region_info.bounding_box;     
         const image = document.getElementById('inputimage');
         const width = Number(image.width);
-        const height = Number(image.height);
-        
-        return{          
+        const height = Number(image.height);        
+        return{
+          clarifaiFace: data.outputs[0].data.regions[i].region_info.bounding_box,          
           bottomRow: height - (clarifaiFace.bottom_row * height),               
           leftCol: clarifaiFace.left_col * width,
           rightCol: width - (clarifaiFace.right_col * width),
