@@ -59,11 +59,11 @@ class App extends Component {
       })]  */
       
       // works
-    for (let i=0; i<data.outputs[0].data.regions.length; i++){
+    for (let i=1; i<data.outputs[0].data.regions.length+1; i++){
          
-      for (let j=i+1; j<data.outputs[0].data.regions.length+1; j++){
-      console.log(data.outputs[0].data.regions[j-1].region_info.bounding_box);
-      const clarifaiFace = data.outputs[0].data.regions[j-1].region_info.bounding_box;    
+      for (let j=i+1; j<data.outputs[0].data.regions.length+2; j++){
+      console.log(data.outputs[0].data.regions[j-2].region_info.bounding_box);
+      const clarifaiFace = data.outputs[0].data.regions[j-2].region_info.bounding_box;    
         //const clarifaiFace = data.outputs[0].data.regions[i].region_info.bounding_box;     
         const image = document.getElementById('inputimage');
         const width = Number(image.width);
