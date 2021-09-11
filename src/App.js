@@ -53,10 +53,10 @@ class App extends Component {
       
     for(let i=1; i<data.outputs[0].data.regions.length+1; i++){
          let bar = function(){
-      for(let j=i+1; j<data.outputs[0].data.regions.length+2; j++){
-        console.log(i);
-        console.log(data.outputs[0].data.regions[i-1].region_info.bounding_box);      
-      const clarifaiFace = data.outputs[0].data.regions[i-1].region_info.bounding_box;          
+      for(let j=i-1; j<data.outputs[0].data.regions.length; j++){
+        console.log('i=' , i, 'j=', j);
+        console.log(data.outputs[0].data.regions[j-1].region_info.bounding_box);      
+      const clarifaiFace = data.outputs[0].data.regions[j-1].region_info.bounding_box;          
         const image = document.getElementById('inputimage');
         const width = Number(image.width);
         const height = Number(image.height);        
