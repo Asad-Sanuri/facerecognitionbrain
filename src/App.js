@@ -13,7 +13,7 @@ import './App.css';
 const initialState = {
   input: '', 
   imageUrl: '',
-  box: {},
+  box: [],
   jer: 0,
   route: 'signin',
   isSignedIn: false,
@@ -56,11 +56,11 @@ class App extends Component {
         const width = Number(image.width);
         const height = Number(image.height);        
         return{                         
-          bottomRow: height - (clarifaiFace.bottom_row * height),               
           leftCol: clarifaiFace.left_col * width,
-          rightCol: width - (clarifaiFace.right_col * width),
           topRow: clarifaiFace.top_row * height,
-          jer: j,        
+          rightCol: width - (clarifaiFace.right_col * width),
+          bottomRow: height - (clarifaiFace.bottom_row * height),
+          jer: j        
                     }
                   }                  
                 }          
@@ -69,7 +69,7 @@ class App extends Component {
             }      
                                                               
     displayFaceBox = (box, jer) => {
-        this.setState( { box: box[jer] }  );        
+        this.setState( {box: box[jer]);        
     }
     
     onInputChange = (event) => {
