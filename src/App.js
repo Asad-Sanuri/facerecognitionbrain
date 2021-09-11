@@ -55,7 +55,7 @@ class App extends Component {
          let bar = function(){
       for(let j=i+1; j<data.outputs[0].data.regions.length+2; j++){
         console.log(data.outputs[0].data.regions[i-1].region_info.bounding_box);      
-        const clarifaiFace = data.outputs[0].data.regions[i-1].region_info.bounding_box;          
+      const clarifaiFace = data.outputs[0].data.regions[i].region_info.bounding_box;          
         const image = document.getElementById('inputimage');
         const width = Number(image.width);
         const height = Number(image.height);        
