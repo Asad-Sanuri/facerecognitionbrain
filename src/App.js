@@ -43,7 +43,7 @@ class App extends Component {
     
     calculateFaceLocation = (data) => {
       // OG const clarifaiFace = data.outputs[0].data.regions[0].region_info.bounding_box;  
-      const clarifaiFace = data.outputs[0].data.regions.region_info.bounding_box;
+      const clarifaiFace = data.outputs[0].data.regions[0, 1].region_info.bounding_box;
       //data.outputs[0].data.regions.forEach(function(region){
         //const clarifaiFace = data.outputs[0].data.regions[0,1].region_info.bounding_box;
     //data.outputs[0].data.regions.forEach(function(region){   
