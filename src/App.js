@@ -53,7 +53,7 @@ class App extends Component {
         //let clarifaiFace = [];  
       //for(let i=0; i<data.outputs[0].data.regions.length; i++){                        
         //clarifaiFace[i] = data.outputs[0].data.regions[i].region_info.bounding_box;
-        console.log(data.outputs[0].data.regions[0][1].region_info.bounding_box;)
+        console.log(data.outputs[0].data.regions[0][1].region_info.bounding_box);
         const clarifaiFace = data.outputs[0].data.regions[0].region_info.bounding_box;          
         const image = document.getElementById('inputimage');
         const width = Number(image.width);
