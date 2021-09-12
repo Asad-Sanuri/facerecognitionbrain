@@ -13,7 +13,7 @@ import './App.css';
 const initialState = {
   input: '', 
   imageUrl: '',
-  box: {},  
+  box: [{}],  
   route: 'signin',
   isSignedIn: false,
   user: {
@@ -51,12 +51,10 @@ class App extends Component {
         console.log('i=' , i, 'j=', j);
         console.log(data.outputs[0].data.regions[j].region_info.bounding_box);   */
         //let clarifaiFace = [];  
-      //for(let i=0; i<data.outputs[0].data.regions.length; i++){                        
+      for(let i=0; i<data.outputs[0].data.regions.length; i++){                        
         //clarifaiFace[i] = data.outputs[0].data.regions[i].region_info.bounding_box;
-        console.log(data.outputs[0].data.regions[1,0].region_info.bounding_box);
-        console.log(data.outputs[0].data.regions[0].region_info.bounding_box);
-        console.log(data.outputs[0].data.regions[1].region_info.bounding_box);
-        const clarifaiFace = data.outputs[0].data.regions[0].region_info.bounding_box;          
+        console.log(data.outputs[0].data.regions[i].region_info.bounding_box);        
+        const clarifaiFace = data.outputs[0].data.regions[i].region_info.bounding_box;          
         const image = document.getElementById('inputimage');
         const width = Number(image.width);
         const height = Number(image.height);        
@@ -67,11 +65,12 @@ class App extends Component {
           bottomRow: height - (clarifaiFace.bottom_row * height)                  
                     }
                   }
+                }
                                   
               
                                                               
-    displayFaceBox = (box) => {
-        this.setState({box: box});        
+    displayFaceBox = ([{box}]) => {
+        this.setState( [{box: box}] );        
     }
     
     onInputChange = (event) => {
@@ -135,7 +134,7 @@ class App extends Component {
                     onInputChange={this.onInputChange}
                     onButtonSubmit={this.onButtonSubmit}                    
                 />
-                <FaceRecognition box={box} imageUrl={imageUrl}  />
+                <FaceRecognition box={ [{box}] } imageUrl={imageUrl}  />
                 </div>
             : (
                 route === 'signin'
