@@ -61,16 +61,10 @@ class App extends Component {
           rightCol: width - (clarifaiFace.right_col * width),
           bottomRow: height - (clarifaiFace.bottom_row * height)                  
                     }
-                  }                  
-                
-                
-              
-            
-                                  
-              
-                                                              
+                  }                 
+                                                                        
     displayFaceBox = (box) => {
-        this.setState({box});        
+        this.setState({box: box});        
     }
     
     onInputChange = (event) => {
