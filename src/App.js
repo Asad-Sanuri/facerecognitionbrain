@@ -55,16 +55,16 @@ class App extends Component {
       for(let i=0; i<data.outputs[0].data.regions.length; i++){                        
         //clarifaiFace[i] = data.outputs[0].data.regions[i].region_info.bounding_box;
         console.log(data.outputs[0].data.regions[i].region_info.bounding_box);        
-        const clarifaiFace = data.outputs[0].data.regions[i].region_info.bounding_box;          
+        const clarifaiFace = [data.outputs[0].data.regions[i].region_info.bounding_box];          
         const image = document.getElementById('inputimage');
         const width = Number(image.width);
         const height = Number(image.height);        
         return{                     
           jer: i,                      
-          leftCol: clarifaiFace.left_col * width,
-          topRow: clarifaiFace.top_row * height,
-          rightCol: width - (clarifaiFace.right_col * width),
-          bottomRow: height - (clarifaiFace.bottom_row * height)                  
+          leftCol: clarifaiFace[i].left_col * width,
+          topRow: clarifaiFace[i].top_row * height,
+          rightCol: width - (clarifaiFace[i].right_col * width),
+          bottomRow: height - (clarifaiFace[i].bottom_row * height)                  
                     }
                   }
                 }
