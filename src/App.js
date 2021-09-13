@@ -13,7 +13,6 @@ import './App.css';
 const initialState = {
   input: '', 
   imageUrl: '',
-  jer: 0,
   box: [{}],  
   route: 'signin',
   isSignedIn: false,
@@ -61,8 +60,7 @@ class App extends Component {
         const image = document.getElementById('inputimage');
         const width = Number(image.width);
         const height = Number(image.height);        
-        return{                     
-          jer: j,                      
+        return{                                               
           leftCol: clarifaiFace.left_col * width,
           topRow: clarifaiFace.top_row * height,
           rightCol: width - (clarifaiFace.right_col * width),
