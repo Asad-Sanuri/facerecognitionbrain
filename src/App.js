@@ -77,7 +77,7 @@ class App extends Component {
               
                                                               
     displayFaceBox = (box) => {
-        this.setState({box});        
+        this.setState([{box}]);        
     }
     
     onInputChange = (event) => {
@@ -125,7 +125,7 @@ class App extends Component {
     }
 
     render(){
-        const { isSignedIn, imageUrl, route, box, jer} = this.state;
+        const { isSignedIn, imageUrl, route, box} = this.state;
         return (
             <div className="App">
                 <Particles options={particlesOptions}/>
@@ -141,7 +141,7 @@ class App extends Component {
                     onInputChange={this.onInputChange}
                     onButtonSubmit={this.onButtonSubmit}                    
                 />
-                <FaceRecognition jer={jer} box={box} imageUrl={imageUrl}/>
+                <FaceRecognition box={box} imageUrl={imageUrl}/>
                 </div>
             : (
                 route === 'signin'
