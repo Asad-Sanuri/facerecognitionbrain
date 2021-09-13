@@ -58,13 +58,12 @@ class App extends Component {
         const image = document.getElementById('inputimage');
         const width = Number(image.width);
         const height = Number(image.height);        
-        return{
-          box: {             
+        return{                     
           i: i,                      
           leftCol: clarifaiFace.left_col * width,
           topRow: clarifaiFace.top_row * height,
           rightCol: width - (clarifaiFace.right_col * width),
-          bottomRow: height - (clarifaiFace.bottom_row * height) }                  
+          bottomRow: height - (clarifaiFace.bottom_row * height)                  
                     }
                   }
                 }
@@ -120,7 +119,7 @@ class App extends Component {
     }
 
     render(){
-        const { isSignedIn, imageUrl, route, box} = this.state;
+        const { isSignedIn, imageUrl, route, box, i} = this.state;
         return (
             <div className="App">
                 <Particles options={particlesOptions}/>
@@ -136,7 +135,7 @@ class App extends Component {
                     onInputChange={this.onInputChange}
                     onButtonSubmit={this.onButtonSubmit}                    
                 />
-                <FaceRecognition box={box} imageUrl={imageUrl}  />
+                <FaceRecognition box={box} imageUrl={imageUrl}  i={i} />
                 </div>
             : (
                 route === 'signin'
