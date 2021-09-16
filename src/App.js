@@ -67,10 +67,10 @@ class App extends Component {
           return{      
             jer: j,
             box:{                                
-            leftCol: clarifaiFace[j].left_col * width,
-            topRow: clarifaiFace[j].top_row * height,
-            rightCol: width - (clarifaiFace[j].right_col * width),
-            bottomRow: height - (clarifaiFace[j].bottom_row * height)}                  
+            leftCol: clarifaiFace.left_col * width,
+            topRow: clarifaiFace.top_row * height,
+            rightCol: width - (clarifaiFace.right_col * width),
+            bottomRow: height - (clarifaiFace.bottom_row * height)}                  
                       }
                     }                                                                             
                   }
