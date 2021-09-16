@@ -64,21 +64,20 @@ class App extends Component {
           const width = Number(image.width);
           const height = Number(image.height);        
           
-          return{
-            jer: j,                                               
-            leftCol: clarifaiFace[j].left_col * width,
-            topRow: clarifaiFace[j].top_row * height,
-            rightCol: width - (clarifaiFace[j].right_col * width),
-            bottomRow: height - (clarifaiFace[j].bottom_row * height)                  
+          return{                                        
+            leftCol: clarifaiFace.left_col * width,
+            topRow: clarifaiFace.top_row * height,
+            rightCol: width - (clarifaiFace.right_col * width),
+            bottomRow: height - (clarifaiFace.bottom_row * height)                  
                       }
-                    }
-                    bar();                                                          
-                  }                   
+                    }                                                                             
+                  }
+                  bar();                    
                 }                
               }                
                                                                         
-    displayFaceBox = (box, jer) => {
-        this.setState({box: box[jer]});        
+    displayFaceBox = (box) => {
+        this.setState({box: box});        
     }
     
     onInputChange = (event) => {
@@ -126,7 +125,7 @@ class App extends Component {
     }
 
     render(){
-        const { isSignedIn, imageUrl, route, box, jer} = this.state;
+        const { isSignedIn, imageUrl, route, box} = this.state;
         return (
             <div className="App">
                 <Particles options={particlesOptions}/>
@@ -142,7 +141,7 @@ class App extends Component {
                     onInputChange={this.onInputChange}
                     onButtonSubmit={this.onButtonSubmit}                    
                 />
-                <FaceRecognition box={box} imageUrl={imageUrl} jer={jer} />
+                <FaceRecognition box={box} imageUrl={imageUrl} />
                 </div>
             : (
                 route === 'signin'
