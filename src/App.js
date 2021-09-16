@@ -13,7 +13,8 @@ import './App.css';
 const initialState = {
   input: '', 
   imageUrl: '',
-  box: {},  
+  jer: 0,
+  box: [{}],  
   route: 'signin',
   isSignedIn: false,
   user: {
@@ -44,27 +45,39 @@ class App extends Component {
     calculateFaceLocation = (data) => {
       // OG const clarifaiFace = data.outputs[0].data.regions[0].region_info.bounding_box;
       // works on second face -> const clarifaiFace = data.outputs[0].data.regions[0, 1].region_info.bounding_box;
-                  
-    /* for(let i=1; i<data.outputs[0].data.regions.length+1; i++){
+
+      /* for(let i=1; i<data.outputs[0].data.regions.length+1; i++){
         let bar = function(){
       for(let j=i-1; j<data.outputs[0].data.regions.length; j++){
         console.log('i=' , i, 'j=', j);
         console.log(data.outputs[0].data.regions[j].region_info.bounding_box);   */
-        //let clarifaiFace = [];                                   
-        const clarifaiFace = data.outputs[0].data.regions[0].region_info.bounding_box;          
-        const image = document.getElementById('inputimage');
-        const width = Number(image.width);
-        const height = Number(image.height);        
-        return{                                               
-          leftCol: clarifaiFace.left_col * width,
-          topRow: clarifaiFace.top_row * height,
-          rightCol: width - (clarifaiFace.right_col * width),
-          bottomRow: height - (clarifaiFace.bottom_row * height)                  
-                    }
-                  }                 
+        //let clarifaiFace = [];  */
+                  
+      for(let i=1; i<data.outputs[0].data.regions.length+1; i++){
+        let bar = function(){
+        for(let j=i-1; j<data.outputs[0].data.regions.length; j++){
+          console.log('i=' , i, 'j=', j);
+          console.log(data.outputs[0].data.regions[j].region_info.bounding_box);  
+          //let clarifaiFace = [];                                   
+          const clarifaiFace = data.outputs[0].data.regions[j].region_info.bounding_box;          
+          const image = document.getElementById('inputimage');
+          const width = Number(image.width);
+          const height = Number(image.height);        
+          return{
+            jer: j,                                               
+            leftCol: clarifaiFace.left_col * width,
+            topRow: clarifaiFace.top_row * height,
+            rightCol: width - (clarifaiFace.right_col * width),
+            bottomRow: height - (clarifaiFace.bottom_row * height)                  
+                      }
+                    }                    
+                  }
+                  bar();
+                }
+              }                
                                                                         
-    displayFaceBox = (box) => {
-        this.setState({box: box});        
+    displayFaceBox = (box, jer) => {
+        this.setState({box: box[jer]});        
     }
     
     onInputChange = (event) => {
@@ -112,7 +125,7 @@ class App extends Component {
     }
 
     render(){
-        const { isSignedIn, imageUrl, route, box} = this.state;
+        const { isSignedIn, imageUrl, route, box, jer} = this.state;
         return (
             <div className="App">
                 <Particles options={particlesOptions}/>
@@ -128,7 +141,7 @@ class App extends Component {
                     onInputChange={this.onInputChange}
                     onButtonSubmit={this.onButtonSubmit}                    
                 />
-                <FaceRecognition box={box} imageUrl={imageUrl}/>
+                <FaceRecognition box={box} imageUrl={imageUrl} jer={jer} />
                 </div>
             : (
                 route === 'signin'
