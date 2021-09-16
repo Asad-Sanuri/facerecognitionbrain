@@ -58,8 +58,8 @@ class App extends Component {
         for(let j=i-1; j<data.outputs[0].data.regions.length; j++){
           console.log('i=' , i, 'j=', j);
           console.log(data.outputs[0].data.regions[j].region_info.bounding_box);          
-          let clarifaiFace = [];                                   
-            clarifaiFace = data.outputs[0].data.regions[j].region_info.bounding_box;          
+          //let clarifaiFace = [];                                   
+          const clarifaiFace = data.outputs[0].data.regions[j].region_info.bounding_box;          
           const image = document.getElementById('inputimage');
           const width = Number(image.width);
           const height = Number(image.height);        
@@ -71,9 +71,9 @@ class App extends Component {
             rightCol: width - (clarifaiFace[j].right_col * width),
             bottomRow: height - (clarifaiFace[j].bottom_row * height)                  
                       }
-                    }                    
+                    }                                                          
                   }
-                  bar();
+                  bar(); 
                 }                
               }                
                                                                         
