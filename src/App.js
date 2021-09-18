@@ -13,7 +13,7 @@ import './App.css';
 const initialState = {
   input: '', 
   imageUrl: '',  
-  box: {},  
+  box: [],  
   route: 'signin',
   isSignedIn: false,
   user: {
@@ -52,13 +52,13 @@ class App extends Component {
         console.log(data.outputs[0].data.regions[j].region_info.bounding_box);   */
         //let clarifaiFace = [];  */
                   
-      /* for(let i=1; i<data.outputs[0].data.regions.length+1; i++){
+      for(let i=1; i<data.outputs[0].data.regions.length+1; i++){
         let bar = function(){        
         for(let j=i-1; j<data.outputs[0].data.regions.length; j++){
           console.log('i=' , i, 'j=', j);
           console.log(data.outputs[0].data.regions[j].region_info.bounding_box);  */         
                                             
-          const clarifaiFace = data.outputs[0].data.regions[0].region_info.bounding_box;          
+          const clarifaiFace = data.outputs[0].data.regions[j].region_info.bounding_box;          
           const image = document.getElementById('inputimage');
           const width = Number(image.width);
           const height = Number(image.height);        
@@ -70,10 +70,10 @@ class App extends Component {
             bottomRow: height - (clarifaiFace.bottom_row * height)                  
                       }
                     }                                                                             
-              /*     }
+                   }
                    bar();                    
                 }                
-              }            */     
+              }                
                                                                         
     displayFaceBox = (box) => {
         this.setState({box: box});        
