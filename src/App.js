@@ -51,25 +51,27 @@ class App extends Component {
           
           const image = document.getElementById('inputimage');
           const width = Number(image.width);
-          const height = Number(image.height); 
+          const height = Number(image.height);
+          let newArr = []; 
           for(let i=1; i<data.outputs[0].data.regions.length+1; i++){
             let bar = function(){        
-            for(let j=i-1; j<data.outputs[0].data.regions.length; j++){          
-           return data.outputs[0].data.regions[j].region_info.bounding_box.push(face => {             
-            const clarifaiFace = face.region_info.bounding_box;    
+            for(let j=i-1; j<data.outputs[0].data.regions.length; j++){                        
+           return newArr.push(face => {
+            const clarifaiFace = face.region_info.bounding_box;                         
+                
             return{    
               leftCol: clarifaiFace.left_col * width,
               topRow: clarifaiFace.top_row * height,
               rightCol: width - (clarifaiFace.right_col * width),
               bottomRow: height - (clarifaiFace.bottom_row * height)                  
                         }
-                      });                                                                             
-                    }                                                         
-                 }                              
-              
-              bar();
-            }
-          }                
+                       });                                                                             
+                    }
+                  }
+                  bar();
+                }
+              }                                                         
+                    
                                                                         
     displayFaceBox = (boxes) => {
         this.setState({boxes: boxes});        
