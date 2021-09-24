@@ -6,9 +6,18 @@ class Register extends React.Component {
     this.state = {
       email: '',
       password: '',
-      name: ''
+      name: '',
+      /* value: '' */
     }
+     /*  // This binding is necessary to make `this` work in the callback
+    this.handleEnter = this.handleEnter.bind(this); */
   }
+  
+  /* handleEnter(event) {
+    this.setState({value: event.target.value});
+} */
+   
+ 
 
   onNameChange = (event) => {
     this.setState({name: event.target.value})
@@ -56,6 +65,9 @@ class Register extends React.Component {
                   name="name"
                   id="name"
                   onChange={this.onNameChange}
+                  onKeyDown={(e) => {
+                    if (e.code === "Enter"){                     
+                      this.onSubmitSignIn()}}}                  
                 />
               </div>
               <div className="mt3">
