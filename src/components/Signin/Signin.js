@@ -9,6 +9,11 @@ class Signin extends React.Component {
     }
   }
 
+  handleKeyUp(e){    
+    if (e.code === "Enter"){
+      this.onSubmitSignIn();
+  }};
+
   onEmailChange = (event) => {
     this.setState({signInEmail: event.target.value})
   }
@@ -50,7 +55,8 @@ class Signin extends React.Component {
                   type="email"
                   name="email-address"
                   id="email-address"
-                  onChange={this.onEmailChange}                 
+                  onChange={this.onEmailChange}
+                  onKeyUp={this.handleKeyUp}                  
                 />
               </div>
               <div className="mv3">
@@ -60,7 +66,8 @@ class Signin extends React.Component {
                   type="password"
                   name="password"
                   id="password"                   
-                  onChange={this.onPasswordChange}                
+                  onChange={this.onPasswordChange}
+                  onKeyUp={this.handleKeyUp}                
                 />
               </div>
             </fieldset>

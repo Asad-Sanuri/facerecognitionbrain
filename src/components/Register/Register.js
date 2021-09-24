@@ -6,18 +6,14 @@ class Register extends React.Component {
     this.state = {
       email: '',
       password: '',
-      name: '',
-      /* value: '' */
-    }
-     /*  // This binding is necessary to make `this` work in the callback
-    this.handleEnter = this.handleEnter.bind(this); */
-  }
-  
-  /* handleEnter(event) {
-    this.setState({value: event.target.value});
-} */
-   
- 
+      name: ''           
+    }     
+  }  
+
+  handleKeyUp(e){    
+    if (e.code === "Enter"){
+      this.onSubmitSignIn();
+  }};  
 
   onNameChange = (event) => {
     this.setState({name: event.target.value})
@@ -49,6 +45,9 @@ class Register extends React.Component {
         }
       })
   }
+  /* onKeyUp={(e) => {
+    if (e.code === "Enter"){                     
+      this.onSubmitSignIn()}}} */  
 
   render() {
     return (
@@ -65,9 +64,7 @@ class Register extends React.Component {
                   name="name"
                   id="name"
                   onChange={this.onNameChange}
-                  onKeyUp={(e) => {
-                    if (e.code === "Enter"){                     
-                      this.onSubmitSignIn()}}}                  
+                  onKeyUp={this.handleKeyUp}                  
                 />
               </div>
               <div className="mt3">
@@ -78,9 +75,7 @@ class Register extends React.Component {
                   name="email-address"
                   id="email-address"
                   onChange={this.onEmailChange}
-                  onKeyUp={(e) => {
-                    if (e.code === "Enter"){                     
-                      this.onSubmitSignIn()}}} 
+                  onKeyUp={this.handleKeyUp}  
                 />
               </div>
               <div className="mv3">
@@ -91,9 +86,7 @@ class Register extends React.Component {
                   name="password"
                   id="password"
                   onChange={this.onPasswordChange}
-                  onKeyUp={(e) => {
-                    if (e.code === "Enter"){                     
-                      this.onSubmitSignIn()}}} 
+                  onKeyUp={this.handleKeyUp}  
                 />
               </div>
             </fieldset>
