@@ -8,12 +8,7 @@ class Register extends React.Component {
       password: '',
       name: ''           
     }     
-  }  
-
-  handleKeyUp(e){    
-    if (e.code === "Enter"){
-      this.onSubmitSignIn();
-  }};  
+  } 
 
   onNameChange = (event) => {
     this.setState({name: event.target.value})
@@ -45,6 +40,11 @@ class Register extends React.Component {
         }
       })
   }
+
+  handleKeyUp(e){    
+    if (e.code === "Enter"){
+      this.onSubmitSignIn();
+  }}; 
   /* onKeyUp={(e) => {
     if (e.code === "Enter"){                     
       this.onSubmitSignIn()}}} */  

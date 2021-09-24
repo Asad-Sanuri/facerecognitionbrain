@@ -7,12 +7,7 @@ class Signin extends React.Component {
       signInEmail: '',
       signInPassword: ''
     }
-  }
-
-  handleKeyUp(e){    
-    if (e.code === "Enter"){
-      this.onSubmitSignIn();
-  }};
+  }  
 
   onEmailChange = (event) => {
     this.setState({signInEmail: event.target.value})
@@ -39,6 +34,11 @@ class Signin extends React.Component {
         }
       })
   }
+
+  handleKeyUp(e){    
+    if (e.code === "Enter"){
+      this.onSubmitSignIn();
+  }}; 
  
   render() {
     const { onRouteChange } = this.props;
