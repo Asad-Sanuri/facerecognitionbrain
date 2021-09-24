@@ -7,7 +7,8 @@ class Register extends React.Component {
       email: '',
       password: '',
       name: ''           
-    }     
+    }
+    this.handleKeyUp = this.handleKeyUp.bind(this);     
   } 
 
   onNameChange = (event) => {

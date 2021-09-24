@@ -7,6 +7,7 @@ class Signin extends React.Component {
       signInEmail: '',
       signInPassword: ''
     }
+    this.handleKeyUp = this.handleKeyUp.bind(this); 
   }  
 
   onEmailChange = (event) => {
