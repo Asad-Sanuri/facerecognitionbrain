@@ -65,7 +65,7 @@ class Register extends React.Component {
                   name="name"
                   id="name"
                   onChange={this.onNameChange}
-                  onKeyDown={(e) => {
+                  onKeyUp={(e) => {
                     if (e.code === "Enter"){                     
                       this.onSubmitSignIn()}}}                  
                 />
@@ -78,6 +78,9 @@ class Register extends React.Component {
                   name="email-address"
                   id="email-address"
                   onChange={this.onEmailChange}
+                  onKeyUp={(e) => {
+                    if (e.code === "Enter"){                     
+                      this.onSubmitSignIn()}}} 
                 />
               </div>
               <div className="mv3">
@@ -88,6 +91,9 @@ class Register extends React.Component {
                   name="password"
                   id="password"
                   onChange={this.onPasswordChange}
+                  onKeyUp={(e) => {
+                    if (e.code === "Enter"){                     
+                      this.onSubmitSignIn()}}} 
                 />
               </div>
             </fieldset>
