@@ -108,7 +108,7 @@ class App extends Component {
             })
           })
             .then(response => response.json())
-            .then(count => {if(input !==''){ 
+            .then(count => {if(this.state.input !==''){ 
               this.setState(Object.assign(this.state.user, {entries: count}))
             }})            
             .catch(console.log)
