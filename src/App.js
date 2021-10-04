@@ -13,7 +13,7 @@ import './App.css';
 const initialState = {
   input: '', 
   imageUrl: '',  
-  boxes: [],  
+  boxes: [{}],  
   route: 'signin',
   isSignedIn: false,
   user: {
@@ -82,7 +82,7 @@ class App extends Component {
       } else {
         this.setState({ input: event.target.value});
       }      
-      this.setState({ box: [] });
+      this.setState({ box: [{}] });
       }
 
     /* onInputChange = (event) => {
