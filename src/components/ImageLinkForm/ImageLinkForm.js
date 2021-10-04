@@ -2,11 +2,11 @@ import React from 'react';
 import './ImageLinkForm.css';
 
 
-const onClickChooseFile = (event) => {
+/* const onClickChooseFile = (event) => {
     this.setState({ showFileChooser: true });
-}
+} */
 
-const ImageLinkForm = ({ onInputChange, onButtonSubmit}) => {
+const ImageLinkForm = ({ onInputChange, onButtonSubmit, input}) => {
     return (
         <div>
             <p className='f3'> 
@@ -31,7 +31,7 @@ const ImageLinkForm = ({ onInputChange, onButtonSubmit}) => {
                     <label className="f3 white">Choose a file </label>
                     <input type="file" id="image" name="image" accept="image/*" onChange={onInputChange} />
                     <input className='f4 pa2 w-70 center' type='text' onChange={onInputChange} /> 
-                    <button className='w-30 grow f4 link ph3 pv2 dib white bg-purple' disabled={!this.state.input} onClick = {onButtonSubmit}>Detect</button>
+                    <button className='w-30 grow f4 link ph3 pv2 dib white bg-purple' disabled={!input} onClick = {onButtonSubmit}>Detect</button>
                 </div>
             </div>
         </div>

@@ -141,6 +141,7 @@ class App extends Component {
                     entries={this.state.user.entries}
                 />
                 <ImageLinkForm
+                    input = {this.state.input}
                     onInputChange={this.onInputChange}
                     onButtonSubmit={this.onButtonSubmit}                    
                 />
