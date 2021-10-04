@@ -130,7 +130,7 @@ class App extends Component {
     }
 
     render(){
-        const { isSignedIn, imageUrl, route, boxes} = this.state;
+        const { isSignedIn, imageUrl, route, boxes, input} = this.state;
         return (
             <div className="App">
                 <Particles options={particlesOptions}/>
@@ -143,7 +143,7 @@ class App extends Component {
                     entries={this.state.user.entries}
                 />
                 <ImageLinkForm
-                    input = {this.state.input}
+                    input = {input}
                     onInputChange={this.onInputChange}
                     onButtonSubmit={this.onButtonSubmit}                    
                 />
