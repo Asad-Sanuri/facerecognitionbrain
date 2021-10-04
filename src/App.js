@@ -63,7 +63,7 @@ class App extends Component {
         this.setState({boxes: boxes});        
     }
 
-    onLocalInputChange = (event) => {
+    onInputChange = (event) => {
       if (event.target.files) {
   
         const files = Array.from(event.target.files);
