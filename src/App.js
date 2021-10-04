@@ -25,6 +25,8 @@ const initialState = {
   }
 }
 
+const url = "https://face--brain-api.herokuapp.com/";
+
 class App extends Component {
     constructor(){
         super();
@@ -32,13 +34,14 @@ class App extends Component {
         }
     
     loadUser = (data) => {
-        this.setState({user: {
-        id: data.id,
-        name: data.name,
-        email: data.email,
-        entries: data.entries,
-        joined: data.joined
-        }})
+        this.setState({
+        user: {
+          id: data.id,
+          name: data.name,
+          email: data.email,
+          entries: data.entries,
+          joined: data.joined
+        }});
     }
     
     calculateFaceLocation = (data) => {                          
@@ -59,10 +62,30 @@ class App extends Component {
     displayFaceBox = (boxes) => {
         this.setState({boxes: boxes});        
     }
+
+    onLocalInputChange = (event) => {
+      if (event.target.files) {
+  
+        const files = Array.from(event.target.files);
+        const formData = new FormData();
+        files.forEach((file, i) => {
+          formData.append(i, file)
+        })
+        fetch(`${url}/image-upload`, {
+          method: 'POST',
+          body: formData
+        })
+          .then(res => res.json())
+          .then(images => {
+            this.setState({ input: images[0].url});
+          })
+      } else {
+        this.setState({ input: event.target.value});
+      }
     
-    onInputChange = (event) => {
+    /* onInputChange = (event) => {
         this.setState({input: event.target.value});
-    }
+    } */
 
     onButtonSubmit = () => {
         this.setState({imageUrl: this.state.input})
