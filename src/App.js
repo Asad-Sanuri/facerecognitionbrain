@@ -25,7 +25,7 @@ const initialState = {
   }
 }
 
-const url = "https://face--brain-api.herokuapp.com/";
+/* const url = "https://face--brain-api.herokuapp.com"; */
 
 class App extends Component {
     constructor(){
@@ -52,7 +52,7 @@ class App extends Component {
         files.forEach((file, i) => {
           formData.append(i, file)
         })
-        fetch(`${url}/image-upload`, {
+        fetch(`https://face--brain-api.herokuapp.com/image-upload`, {
           method: 'POST',
           body: formData
         })
