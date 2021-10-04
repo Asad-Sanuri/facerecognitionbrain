@@ -98,7 +98,7 @@ class App extends Component {
         })      
       .then(response => response.json())  
       .then(response => {
-        console.log('hi', response)
+        console.log('hi, this is your response', response)
         if (response) {
           fetch('https://face--brain-api.herokuapp.com/image', {
             method: 'put',
