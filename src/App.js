@@ -42,27 +42,8 @@ class App extends Component {
           entries: data.entries,
           joined: data.joined
         }});
-    }
-    
-    calculateFaceLocation = (data) => {                          
-          const image = document.getElementById('inputimage');
-          const width = Number(image.width);
-          const height = Number(image.height);
-          return data.outputs[0].data.regions.map(face => {
-            const clarifaiFace = face.region_info.bounding_box;               
-            return{    
-              leftCol: clarifaiFace.left_col * width,
-              topRow: clarifaiFace.top_row * height,
-              rightCol: width - (clarifaiFace.right_col * width),
-              bottomRow: height - (clarifaiFace.bottom_row * height)                  
-                        }
-                       });                                                                             
-                    }                
+    }       
                                                                                        
-    displayFaceBox = (boxes) => {
-        this.setState({boxes: boxes});        
-    }
-
     onInputChange = (event) => {
       if (event.target.files) {
 
@@ -120,6 +101,23 @@ class App extends Component {
       .catch(err => console.log(err));
   }  
     
+    calculateFaceLocation = (data) => {                          
+      const image = document.getElementById('inputimage');
+      const width = Number(image.width);
+      const height = Number(image.height);
+      return data.outputs[0].data.regions.map(face => {
+        const clarifaiFace = face.region_info.bounding_box;               
+        return{    
+          leftCol: clarifaiFace.left_col * width,
+          topRow: clarifaiFace.top_row * height,
+          rightCol: width - (clarifaiFace.right_col * width),
+          bottomRow: height - (clarifaiFace.bottom_row * height)                  
+                    }
+                  });                                                                             
+                }   
+    
+    displayFaceBox = (boxes) => { this.setState({boxes: boxes}); }      
+              
     onRouteChange = (route) => {
         if (route === 'signout') {
         this.setState(initialState)
@@ -147,7 +145,7 @@ class App extends Component {
                     onInputChange={this.onInputChange}
                     onButtonSubmit={this.onButtonSubmit}                    
                 />
-                <FaceRecognition boxes={boxes} imageUrl={imageUrl} />
+                <FaceRecognition boxes={boxes} imageUrl={input} />
                 </div>
             : (
                 route === 'signin'
