@@ -65,7 +65,7 @@ class App extends Component {
 
     onInputChange = (event) => {
       if (event.target.files) {
-  
+
         const files = Array.from(event.target.files);
         const formData = new FormData();
         files.forEach((file, i) => {
@@ -81,8 +81,10 @@ class App extends Component {
           })
       } else {
         this.setState({ input: event.target.value});
-      }}
-    
+      }      
+      this.setState({ box: [] });
+      }
+
     /* onInputChange = (event) => {
         this.setState({input: event.target.value});
     } */
