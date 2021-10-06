@@ -46,7 +46,6 @@ class App extends Component {
                                                                                        
     onInputChange = (event) => {
       if (event.target.files) {
-
         const files = Array.from(event.target.files);
         const formData = new FormData();
         files.forEach((file, i) => {
