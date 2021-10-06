@@ -45,10 +45,7 @@ class Register extends React.Component {
   handleKeyUp(e){    
     if (e.code === "Enter"){
       this.onSubmitSignIn();
-  }}; 
-  /* onKeyUp={(e) => {
-    if (e.code === "Enter"){                     
-      this.onSubmitSignIn()}}} */  
+  }};  
 
   render() {
     return (
