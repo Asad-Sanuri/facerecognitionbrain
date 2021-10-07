@@ -25,8 +25,6 @@ const initialState = {
   }
 }
 
-/* const url = "https://face--brain-api.herokuapp.com"; */
-
 class App extends Component {
     constructor(){
         super();
@@ -64,10 +62,6 @@ class App extends Component {
       }      
       this.setState({ box: [{}] });
       }
-
-    /* onInputChange = (event) => {
-        this.setState({input: event.target.value});
-    } */
 
     onButtonSubmit = () => {
         this.setState({imageUrl: this.state.input})
