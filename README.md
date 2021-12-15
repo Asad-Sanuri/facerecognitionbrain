@@ -1,6 +1,6 @@
 ## Face--Brain Client
 You can put a URL of any image or upload an image from your device and it will draw a box around the faces.
-Front-end is built with React.js, back-end uses Node.js, database uses Postgresql. 
+Front-end is built with React.js, back-end uses Express and Node.js, database uses Postgresql. 
 CLARIFAI is used for recognition, CLOUDINARY is used for saving uploaded images.
 
 
